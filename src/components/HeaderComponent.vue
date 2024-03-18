@@ -1,6 +1,18 @@
-<script setup lang="ts">
+<script lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
+  export default {
+    name: 'HeaderComponent',
+    props: {
+    },
+    data() {
+      return {
+      };
+    },
+    methods:{
+
+    }
+  }
 
 </script>
 

@@ -1,39 +1,43 @@
-<script setup lang="ts">
+<script lang="ts">
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import axios from 'axios';
-import { onMounted } from 'vue';
 
-  let listOfCountries: any[];
-
-  onMounted(() => {
-    getCountryList();
-  })  
-
-  function getCountryList() {
-    const countrieUrl = 'https://restcountries.com/v3.1/all'
-    
-    const countrieFieldsFilter = [
-      'name',
-      'population',
-      'region',
-      'subregion',
-      'capital',
-      'tld', //Top Level Domain
-      'currencies',
-      'languages',
-      'flags',
-    ];
-
-    axios.get(`${countrieUrl}?fields=${countrieFieldsFilter.join(',')}`).then(response => {
-      if (response) {
-        listOfCountries = response.data;
+  export default {
+    name: 'CountriesPage',
+    props: {
+    },
+    data() {
+      return {
+        listOfCountries: []
+      };
+    },
+    methods: {
+      getCountryList() {
+        const countrieUrl = 'https://restcountries.com/v3.1/all'
+        
+        const countrieFieldsFilter = [
+          'name',
+          'population',
+          'region',
+          'subregion',
+          'capital',
+          'tld', //Top Level Domain
+          'currencies',
+          'languages',
+          'flags',
+        ]; 
+        try {
+          axios.get(`${countrieUrl}?fields=${countrieFieldsFilter.join(',')}`).then(response => {
+            this.listOfCountries = response.data;
+          })
+        } catch(e) {}
       }
-    }).catch(err => {
-      console.log(err)
-    });
+    },
+    beforeMount() {
+      this.getCountryList();
+    }
   }
-
 </script>
 
 <template>
