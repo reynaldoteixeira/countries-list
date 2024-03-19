@@ -1,3 +1,4 @@
+import CountryDetailsPage from '@/views/CountryDetailsPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/CountriesPage.vue'
 
@@ -8,6 +9,11 @@ const router = createRouter({
       path: '/',
       name: 'countries-page',
       component: HomeView
+    },
+    {
+      path: '/country-details',
+      name: 'CountryDetailsPage',
+      component: CountryDetailsPage
     }
   ]
 })

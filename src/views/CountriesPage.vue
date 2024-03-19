@@ -32,6 +32,9 @@ import axios from 'axios';
             this.listOfCountries = response.data;
           })
         } catch(e) {}
+      },
+      goToCountryPage() {
+        this.$router.push('/country-details');
       }
     },
     beforeMount() {
@@ -52,7 +55,7 @@ import axios from 'axios';
     </div>
 
     <div class="country-cards-area">
-        <div class="country-card" v-for="country in listOfCountries">
+        <div class="country-card" v-for="country in listOfCountries" @click="goToCountryPage()">
           <img :src="country.flags.png" alt="flag">
 
           <div class="card-content">
@@ -123,6 +126,7 @@ import axios from 'axios';
         background-color: hsl(0, 0%, 100%);
         border-radius: 4px;
         margin: 0 50px 50px 0;
+        cursor: pointer;
 
         img {
           width: 250px;

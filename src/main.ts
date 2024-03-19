@@ -9,6 +9,7 @@ import router from './router'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import HeaderComponent from './components/HeaderComponent.vue'
 import CountriesPage from './views/CountriesPage.vue'
+import CountryDetailsPage from './views/CountryDetailsPage.vue'
 
 
 library.add(fas)
@@ -16,8 +17,9 @@ library.add(fas)
 const app = createApp(App)
 
 app.component('font-awesome-icon', FontAwesomeIcon);
-app.component('CountriesPage', CountriesPage);
 app.component('HeaderComponent', HeaderComponent);
+app.component('CountriesPage', CountriesPage);
+app.component('CountryDetailsPage', CountryDetailsPage);
 
 app.use(router)
 
