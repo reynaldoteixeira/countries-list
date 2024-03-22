@@ -11,7 +11,7 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/country-details',
+      path: '/country-details/:name',
       name: 'CountryDetailsPage',
       component: CountryDetailsPage
     }

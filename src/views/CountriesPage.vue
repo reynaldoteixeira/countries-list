@@ -33,8 +33,8 @@ import axios from 'axios';
           })
         } catch(e) {}
       },
-      goToCountryPage() {
-        this.$router.push('/country-details');
+      goToCountryPage(countrySelect) {
+        this.$router.push({name:'CountryDetailsPage', params: { name: countrySelect }});
       }
     },
     beforeMount() {
@@ -55,7 +55,7 @@ import axios from 'axios';
     </div>
 
     <div class="country-cards-area">
-        <div class="country-card" v-for="country in listOfCountries" @click="goToCountryPage()">
+        <div class="country-card" v-for="country in listOfCountries" @click="goToCountryPage(country.name.official)">
           <img :src="country.flags.png" alt="flag">
 
           <div class="card-content">

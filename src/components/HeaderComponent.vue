@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
       };
     },
     methods:{
-
+            
     }
   }
 
