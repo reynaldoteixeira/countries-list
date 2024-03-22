@@ -14,9 +14,9 @@ import axios from 'axios';
     },
     methods: {
       getCountryList() {
-        const countrieUrl = 'https://restcountries.com/v3.1/all'
+        const countryUrl = 'https://restcountries.com/v3.1/all'
         
-        const countrieFieldsFilter = [
+        const countryFieldsFilter = [
           'name',
           'population',
           'region',
@@ -28,7 +28,7 @@ import axios from 'axios';
           'flags',
         ]; 
         try {
-          axios.get(`${countrieUrl}?fields=${countrieFieldsFilter.join(',')}`).then(response => {
+          axios.get(`${countryUrl}?fields=${countryFieldsFilter.join(',')}`).then(response => {
             this.listOfCountries = response.data;
           })
         } catch(e) {}
